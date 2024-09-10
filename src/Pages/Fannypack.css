@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+  padding: 30px 0;
+}
+
+.container-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.text-box {
+  display: flex;            /* Enable Flexbox */
+  width: 80%;
+  justify-content: space-between; /* Space between the items */
+  align-items: center;     /* Center items vertically */
+  margin-bottom: 10px;
+  padding: 10px;           /* Optional padding */
+  background-color: #f0f0f0; /* Optional background color */
+  border-radius: 5px;      /* Optional border radius */
+}
+
+.text-box-left,
+.text-box-right {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center; 
+}
+
+.text-box-left,
+.text-box-right,
+.image {
+  opacity: 0;
+  transform: translateX(-20px) scale(0.8);
+  animation: appear 1s ease-out forwards, breath 3s ease-in-out 1.5s;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 25px;
+  
+}
+
+.image {
+  width: 30%; /* Each image will take 30% of the container width */
+  height: auto;
+  object-fit: cover;
+}
+
+@keyframes appear {
+  to {
+        opacity: 1; /* Fade in */
+        transform: translateX(0) scale(1); /* Move to original position */
+    }
+}
+
+@keyframes breath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.text-box-left {
+  animation-delay: 0.4s;
+}
+.text-box-right {
+  animation-delay: 0.8s;
+}
+
+.image-container .image:nth-child(1) {
+  animation-delay: 1.2s; /* Delay for first image */
+}
+
+.image-container .image:nth-child(2) {
+  animation-delay: 1.6s; /* Delay for second image */
+}
+
+.image-container .image:nth-child(3) {
+  animation-delay: 2s; /* Delay for third image */
+}
+
+.fannypack-listing {
+display: grid;
+margin-top: 100px;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 50px;
+margin-right: 60px;
+}
+
+.fannypack-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+.fannypack-image {
+  max-width: 100%;
+  height: auto;
+  
+}
+
+.fanny-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.fannypack-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: ease 0.3s ease-in-out;
+}
+
+.fannypack-image.primary {
+  opacity: 1;
+}
+
+.fannypack-image.secondary {
+  opacity: 0;
+}
+
+.fannypack-item:hover .fannypack-image.primary {
+  opacity: 0;
+}
+
+.fannypack-item:hover .fannypack-image.secondary {
+  opacity: 1;
+}

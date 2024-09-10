@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
+/*
 const products = {
   backpack: [
     { id:1, name: 'Mushrooma Backpack', price: '€40', imageUrl: 'backpack1.jpg'},
@@ -11,19 +13,19 @@ const products = {
  
   ],
 }
+*/
 
 const ShopCategory = ({ category }) => {
   return (
     <div>
-      <h1>{category.charAt(0).toUpperCase() + category.slice(1)} Collection</h1>
-      <p>Here are the best deals for {category}!</p>
-      <div className='product-list'>
-      {/* You can add logic here to dynamically display products for the specific category */
       
-      }
-      </div>
+     
     </div>
   );
 };
 
-export default ShopCategory;
+ShopCategory.propTypes = {
+  category: PropTypes.string.isRequired,  // Example validation
+};
+
+  export default ShopCategory;
